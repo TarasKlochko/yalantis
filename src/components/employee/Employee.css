@@ -1,0 +1,71 @@
+.employee {
+  padding: 10px;
+}
+.employee__name {
+  color: #000000;
+  font-size: 16px;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  margin-bottom: 2px;
+}
+
+.employee__name_active {
+  color: #0000ff;
+}
+.employee__options {
+  display: flex;
+  flex-direction: column;
+}
+.employee__options-label {
+  display: block;
+  align-items: center;
+  margin-left: 5px;
+  position: relative;
+  padding-left: 20px;
+}
+.employee__options-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  margin-right: 5px;
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 15px;
+  width: 15px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 50%;
+}
+
+.employee__options-label:hover .employee__options-input ~ .checkmark {
+  background-color: #ffffff;
+}
+
+.employee__options-label .employee__options-input:checked ~ .checkmark {
+  background-color: #ffffff;
+}
+
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.employee__options-label .employee__options-input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.employee__options-label .checkmark:after {
+  top: 2px;
+  left: 2px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #000000;
+}
