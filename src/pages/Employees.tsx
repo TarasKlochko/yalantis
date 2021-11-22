@@ -1,4 +1,5 @@
 import react, { useEffect, useState } from 'react';
+import { useAppSelector } from '../app/hooks';
 import Employee from '../components/employee/Employee';
 import './Employees.css';
 
@@ -10,6 +11,7 @@ function Employees() {
     dob: string;
   }
   const [employees, setEmployee] = useState<IEmployee[]>();
+
   useEffect(() => {
     fetch(`https://yalantis-react-school-api.yalantis.com/api/task0/users`)
       .then((response) => response.json())

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { addEmployeeBirthday, removeEmployeeBirthday } from '../employeeBirthday/employeeBithday.slice';
 import './Employee.css';
 
 interface IEmployee {
@@ -9,12 +11,32 @@ interface IEmployee {
 }
 function Employee(props: { employee: IEmployee }) {
   const [option, setOption] = useState('false');
-  // useEffect(() => {
-  //   setOption(props.optionValue);
-  // }, [props.optionValue]);
+
+  const birthdayList = useAppSelector((state) => state.employeeBirthday);
+
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    if (birthdayList.length) {
+      birthdayList.forEach((id: string) => {
+        if (id === props.employee.id) {
+          setOption('true');
+        }
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('birthdayList', JSON.stringify(birthdayList));
+  }, [birthdayList]);
 
   function handleOption(event: React.FormEvent<HTMLInputElement>) {
-    setOption(event.currentTarget.value);
+    let optionValue = event.currentTarget.value;
+    setOption(optionValue);
+    if (optionValue === 'true') {
+      dispatch(addEmployeeBirthday(props.employee.id));
+    } else {
+      dispatch(removeEmployeeBirthday(props.employee.id));
+    }
   }
 
   return (
