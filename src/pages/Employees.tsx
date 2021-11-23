@@ -84,6 +84,17 @@ function Employees() {
                   {employees.filter((employee) => employee.firstName[0] === char).length ? (
                     employees
                       .filter((employee) => employee.firstName[0] === char)
+                      .sort((a, b) => {
+                        let x = a.firstName.toLowerCase();
+                        let y = b.firstName.toLowerCase();
+                        if (x < y) {
+                          return -1;
+                        }
+                        if (x > y) {
+                          return 1;
+                        }
+                        return 0;
+                      })
                       .map((employee) => <Employee employee={employee} />)
                   ) : (
                     <p className="employees__empty">"No Employees"</p>
