@@ -106,9 +106,9 @@ function Employees() {
       </div>
       <div className="employees__birthday">
         <h2 className="employees__title">Employees birthday</h2>
-        {birthdayList.length ? (
-          <ul className="employees__month-list">
-            {months.map((month, index) => (
+        <ul className="employees__month-list">
+          {birthdayList.length ? (
+            months.map((month, index) => (
               <li className="employees__month-item" key={index}>
                 <h3 className="employees__month">{months[(index + 10) % 12]}</h3>
                 <ul>
@@ -140,11 +140,11 @@ function Employees() {
                   )}
                 </ul>
               </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="employees__empty">Employees List is empty</p>
-        )}
+            ))
+          ) : (
+            <p className="employees__empty">Employees List is empty</p>
+          )}
+        </ul>
       </div>
     </div>
   );
