@@ -42,8 +42,7 @@ function Employee(props: { employee: IEmployee }) {
   return (
     <div className="employee">
       <h4 className={option === 'true' ? 'employee__name employee__name_active' : 'employee__name'}>
-        {props.employee.firstName}
-        {props.employee.lastName}
+        {props.employee.firstName} {props.employee.lastName}
       </h4>
       <div className="employee__options">
         <label className="employee__options-label">
