@@ -11,6 +11,21 @@ function Employees() {
     dob: string;
   }
   const [employees, setEmployee] = useState<IEmployee[]>();
+  const birthdayList = useAppSelector((state) => state.employeeBirthday);
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
 
   useEffect(() => {
     fetch(`https://yalantis-react-school-api.yalantis.com/api/task0/users`)
@@ -79,8 +94,46 @@ function Employees() {
         </ul>
       </div>
       <div className="employees__birthday">
-        <h2>Employees birthday</h2>
-        <ul></ul>
+        <h2 className="employees__title">Employees birthday</h2>
+        {birthdayList.length ? (
+          <ul className="employees__month-list">
+            {months.map((month, index) => (
+              <li className="employees__month-item" key={index}>
+                <h3 className="employees__month">{months[(index + 10) % 12]}</h3>
+                <ul>
+                  {employees
+                    ?.filter((employee) => birthdayList.some((id) => id === employee.id))
+                    .filter((employee) => new Date(employee.dob).getMonth() === (index + 10) % 12).length ? (
+                    employees
+                      ?.filter((employee) => birthdayList.some((id) => id === employee.id))
+                      .filter((employee) => new Date(employee.dob).getMonth() === (index + 10) % 12)
+                      .sort((a, b) => {
+                        let x = a.lastName.toLowerCase();
+                        let y = b.lastName.toLowerCase();
+                        if (x < y) {
+                          return -1;
+                        }
+                        if (x > y) {
+                          return 1;
+                        }
+                        return 0;
+                      })
+                      .map((employee) => (
+                        <li className="employees__date" key={employee.id}>
+                          {`${employee.lastName} ${employee.firstName} - ${new Date(employee.dob).getDate()} `}
+                          {months[new Date(employee.dob).getMonth()]}, {new Date(employee.dob).getFullYear()} year
+                        </li>
+                      ))
+                  ) : (
+                    <li className="employees__empty">"No Employees"</li>
+                  )}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="employees__empty">Employees List is empty</p>
+        )}
       </div>
     </div>
   );
