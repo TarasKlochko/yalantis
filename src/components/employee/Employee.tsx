@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { IEmployee } from '../../interfaces';
 import { addEmployeeBirthday, removeEmployeeBirthday } from '../employeeBirthday/employeeBithday.slice';
 import './Employee.css';
 
-interface IEmployee {
-  id: string;
-  firstName: string;
-  lastName: string;
-  dob: string;
-}
 function Employee(props: { employee: IEmployee }) {
   const [option, setOption] = useState('false');
-
   const birthdayList = useAppSelector((state) => state.employeeBirthday);
-
   const dispatch = useAppDispatch();
+
   useEffect(() => {
     if (birthdayList.length) {
       birthdayList.forEach((id: string) => {
@@ -23,7 +17,7 @@ function Employee(props: { employee: IEmployee }) {
         }
       });
     }
-  }, []);
+  });
 
   useEffect(() => {
     localStorage.setItem('birthdayList', JSON.stringify(birthdayList));
