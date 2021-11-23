@@ -97,7 +97,7 @@ function Employees() {
                       })
                       .map((employee) => <Employee employee={employee} />)
                   ) : (
-                    <p className="employees__empty">"No Employees"</p>
+                    <p className="employees__empty employees__empty_all">"No Employees"</p>
                   )}
                 </div>
               </li>

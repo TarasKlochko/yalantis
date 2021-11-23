@@ -27,7 +27,9 @@
   color: #000;
   font-size: 14px;
 }
-
+.employees__empty_all {
+  margin-top: 10px;
+}
 .employees__birthday {
   width: 40%;
   padding: 0 25px;
