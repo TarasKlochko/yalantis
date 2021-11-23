@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/yalantis/static/css/main.424ecbbc.chunk.css",
+    "main.js": "/yalantis/static/js/main.8bbcaec8.chunk.js",
+    "main.js.map": "/yalantis/static/js/main.8bbcaec8.chunk.js.map",
+    "runtime-main.js": "/yalantis/static/js/runtime-main.4d496cd6.js",
+    "runtime-main.js.map": "/yalantis/static/js/runtime-main.4d496cd6.js.map",
+    "static/js/2.5c36647c.chunk.js": "/yalantis/static/js/2.5c36647c.chunk.js",
+    "static/js/2.5c36647c.chunk.js.map": "/yalantis/static/js/2.5c36647c.chunk.js.map",
+    "index.html": "/yalantis/index.html",
+    "static/css/main.424ecbbc.chunk.css.map": "/yalantis/static/css/main.424ecbbc.chunk.css.map",
+    "static/js/2.5c36647c.chunk.js.LICENSE.txt": "/yalantis/static/js/2.5c36647c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4d496cd6.js",
+    "static/js/2.5c36647c.chunk.js",
+    "static/css/main.424ecbbc.chunk.css",
+    "static/js/main.8bbcaec8.chunk.js"
+  ]
+}
