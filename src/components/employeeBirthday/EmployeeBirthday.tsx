@@ -3,6 +3,7 @@ import { IEmployee } from '../../interfaces';
 import { months } from '../../data.js';
 import { useAppSelector } from '../../app/hooks';
 import { sortEmployees } from '../../sortEmployees';
+import './EmployeeBirthday.css';
 
 function EmployeeBirthday(props: { employees: IEmployee[] }) {
   const birthdayList = useAppSelector((state) => state.employeeBirthday);
