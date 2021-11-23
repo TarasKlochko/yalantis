@@ -1,6 +1,6 @@
 import react, { useEffect, useState } from 'react';
-import { useAppSelector } from '../app/hooks';
-import Employee from '../components/employee/Employee';
+import { useAppSelector } from '../../app/hooks';
+import Employee from '../../components/employee/Employee';
 import './Employees.css';
 
 function Employees() {

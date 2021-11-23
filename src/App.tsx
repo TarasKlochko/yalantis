@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import Employees from './pages/Employees';
+import Employees from './pages/Employees/Employees';
 import './App.css';
 
 function App() {
